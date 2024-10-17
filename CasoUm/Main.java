@@ -8,14 +8,12 @@ public class Main {
         ListaEncadeada<Paciente> pacientes = new ListaEncadeada<>();
         ListaEncadeada<Medico> medicos = new ListaEncadeada<>();
 
-        // Exemplos de inserção
+        // Inserções de exemplo
         pacientes.inserir(new Paciente("cleito", 30, "cagão", "10/10/2010"));
         medicos.inserir(new Medico("Doutor Lambimia", "Urologista", true));
         String nomePacienteConsulta = "cleito";
         String dataConsulta = "12/12/2024";
         pacientes.agendarConsulta(nomePacienteConsulta, dataConsulta);
-
-        // Implementar lógica para agendar consultas, buscar pacientes e médicos
 
         Scanner scanner = new Scanner(System.in);
         int opcao;
@@ -34,7 +32,7 @@ public class Main {
             System.out.println("0. Sair");
             System.out.print("Escolha uma opção: ");
             opcao = scanner.nextInt();
-            scanner.nextLine();  // Consumir a nova linha
+            scanner.nextLine();
 
             switch(opcao) {
                 case 1:
@@ -43,7 +41,7 @@ public class Main {
                     String nomePaciente = scanner.nextLine();
                     System.out.println("Idade do paciente:");
                     int idade = scanner.nextInt();
-                    scanner.nextLine();  // Consumir a nova linha
+                    scanner.nextLine();
                     System.out.println("Histórico médico do paciente:");
                     String historicoMedico = scanner.nextLine();
                     System.out.println("Data da última consulta (dd/mm/yyyy):");

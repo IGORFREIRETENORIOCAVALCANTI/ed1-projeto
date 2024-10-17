@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class Consulta implements Comparable<Consulta> {
     private String dataConsulta;
-    private String status; // Pode ser "Agendada", "Concluída" ou "Cancelada"
+    private String status; // Agendada, Concluída ou Cancelada
 
     public Consulta(String dataConsulta) throws ParseException {
         if (!dataConsulta.matches("\\d{2}/\\d{2}/\\d{4}")) {

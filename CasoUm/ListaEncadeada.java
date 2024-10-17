@@ -37,7 +37,7 @@ public class ListaEncadeada<T> {
             }
             atual = atual.next;
         }
-        return null; // Retorna null se não encontrar
+        return null;
     }
 
     public T buscaMedico(String nome) {
@@ -53,7 +53,7 @@ public class ListaEncadeada<T> {
             }
             atual = atual.next;
         }
-        return null; // Retorna null se não encontrar
+        return null;
     }
 
     public boolean nomeAtualizar(String nome, String novaDataConsulta) {
@@ -62,12 +62,12 @@ public class ListaEncadeada<T> {
             if (atual.data instanceof Paciente paciente) {
                 if (paciente.getNome().equalsIgnoreCase(nome)) {
                     paciente.setDataUltimaConsulta(novaDataConsulta);
-                    return true; // Atualização bem-sucedida
+                    return true;
                 }
             }
             atual = atual.next;
         }
-        return false; // Retorna false se não encontrar
+        return false;
     }
 
     public void listarTodosPacientes() {
