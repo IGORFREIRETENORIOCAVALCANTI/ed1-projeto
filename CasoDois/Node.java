@@ -1,4 +1,4 @@
-package CasoDois;
+package casodois;
 
 class Node<T> {
     T data;

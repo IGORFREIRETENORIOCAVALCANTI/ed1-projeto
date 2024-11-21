@@ -1,4 +1,4 @@
-package CasoDois;
+package casodois;
 
 import java.util.ArrayList;
 import java.util.List;

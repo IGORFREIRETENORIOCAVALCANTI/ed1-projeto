@@ -1,4 +1,4 @@
-package CasoTres;
+package casotres;
 
 class Node<T> {
     T data;

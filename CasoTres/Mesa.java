@@ -1,4 +1,4 @@
-package CasoTres;
+package casotres;
 
 public class Mesa {
     private int numero;

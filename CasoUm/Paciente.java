@@ -1,4 +1,4 @@
-package CasoUm;
+package casoum;
 
 import java.util.ArrayList;
 import java.util.List;

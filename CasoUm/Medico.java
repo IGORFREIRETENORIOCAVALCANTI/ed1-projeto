@@ -1,4 +1,4 @@
-package CasoUm;
+package casoum;
 
 public class Medico {
     private String nome;

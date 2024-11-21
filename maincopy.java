@@ -1,24 +1,21 @@
-package casoum;
 
+
+import casoum.ListaEncadeada;
+import casoum.Medico;
+import casoum.Paciente;
 import java.text.ParseException;
 import java.util.Scanner;
 
-public class Main {
+public class maincopy {
     public static void main(String[] args) throws ParseException {
         ListaEncadeada<Paciente> pacientes = new ListaEncadeada<>();
         ListaEncadeada<Medico> medicos = new ListaEncadeada<>();
-        ListaEncadeada<Consulta> consultas = new ListaEncadeada<>();
 
         // Inserções de exemplo
-        Paciente pacienteExemplo = new Paciente("Cleito", 30, "Cagão", "10/10/2010");
-        pacientes.inserir(pacienteExemplo);
+        pacientes.inserir(new Paciente("cleito", 30, "cagão", "10/10/2010"));
         medicos.inserir(new Medico("Doutor Lambimia", "Urologista", true));
-
-        // Criar consulta de exemplo
-        String nomePacienteConsulta = "Cleito";
+        String nomePacienteConsulta = "cleito";
         String dataConsulta = "12/12/2024";
-        Consulta consultaExemplo = new Consulta(nomePacienteConsulta, dataConsulta);
-        consultas.inserir(consultaExemplo); // Insira a consulta de exemplo na lista de consultas
         pacientes.agendarConsulta(nomePacienteConsulta, dataConsulta);
 
         Scanner scanner = new Scanner(System.in);
@@ -35,7 +32,6 @@ public class Main {
             System.out.println("6. Listar todos os pacientes");
             System.out.println("7. Listar todos os médicos");
             System.out.println("8. Listar todas as consultas");
-            System.out.println("9. Visualizar histórico");
             System.out.println("0. Sair");
             System.out.print("Escolha uma opção: ");
             opcao = scanner.nextInt();
@@ -53,20 +49,15 @@ public class Main {
                     String historicoMedico = scanner.nextLine();
                     System.out.println("Data da última consulta (dd/mm/yyyy):");
                     String dataUltimaConsulta = scanner.nextLine();
-                    Paciente novoPaciente = new Paciente(nomePaciente, idade, historicoMedico, dataUltimaConsulta);
-                    pacientes.inserir(novoPaciente);
-                    Acao.adicionarAcao(new Acao("inserir", novoPaciente, null));
+                    pacientes.inserir(new Paciente(nomePaciente, idade, historicoMedico, dataUltimaConsulta));
                     break;
                 case 2:
                     System.out.println("----------------------------");
                     System.out.println("Nome do paciente para agendar consulta:");
-                    nomePacienteConsulta = scanner.nextLine();
+                    /*String*/ nomePacienteConsulta = scanner.nextLine();
                     System.out.println("Data da consulta (dd/mm/yyyy):");
-                    dataConsulta = scanner.nextLine();
-                    Consulta consulta = new Consulta(nomePacienteConsulta, dataConsulta);
+                    /*String*/ dataConsulta = scanner.nextLine();
                     pacientes.agendarConsulta(nomePacienteConsulta, dataConsulta);
-                    consultas.inserir(consulta); // Adicione a consulta à lista de consultas
-                    Acao.adicionarAcao(new Acao("agendar", null, consulta));
                     break;
                 case 3:
                     System.out.println("----------------------------");
@@ -92,8 +83,7 @@ public class Main {
                     String nomeAtualizar = scanner.nextLine();
                     System.out.println("Data da consulta a ser atualizada (dd/mm/yyyy):");
                     String dataConsultaAtualizar = scanner.nextLine();
-                    Consulta consultaAtualizar = pacientes.atualizarConsulta(nomeAtualizar, dataConsultaAtualizar);
-                    Acao.adicionarAcao(new Acao("atualizar", null, consultaAtualizar));
+                    pacientes.atualizarConsulta(nomeAtualizar, dataConsultaAtualizar);
                     break;
                 case 6:
                     System.out.println("----------------------------");
@@ -110,15 +100,6 @@ public class Main {
                     System.out.println("Lista de todas as consultas:");
                     pacientes.listarConsultas();
                     break;
-                case 9:
-                    System.out.println("----------------------------");
-                    Acao.visualizarHistorico();
-                    System.out.println("Deseja desfazer a última ação? (s/n)");
-                    String desfazer = scanner.nextLine();
-                    if (desfazer.equalsIgnoreCase("s")) {
-                        Acao.desfazerUltimaAcao(pacientes, consultas);
-                    }
-                    break;
                 case 0:
                     System.out.println("----------------------------");
                     System.out.println("Saindo...");
@@ -128,7 +109,7 @@ public class Main {
                     System.out.println("Opção inválida! Tente novamente.");
             }
         } while (opcao != 0);
-
+        
         scanner.close();
     }
 }

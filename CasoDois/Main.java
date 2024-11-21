@@ -1,4 +1,4 @@
-package CasoDois;
+package casodois;
 
 import java.util.Scanner;
 

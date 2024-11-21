@@ -1,4 +1,4 @@
-package CasoUm;
+package casoum;
 
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -21,6 +21,25 @@ public class ListaEncadeada<T> {
             temp.next = novoNode;
             novoNode.prev = temp;
         }
+    }
+// pilha
+    public boolean remover(T data) {
+        if (head == null) {
+            return false;
+        }
+        if (head.data.equals(data)) {
+            head = head.next;
+            return true;
+        }
+        Node<T> temp = head;
+        while (temp.next != null) {
+            if (temp.next.data.equals(data)) {
+                temp.next = temp.next.next;
+                return true;
+            }
+            temp = temp.next;
+        }
+        return false;
     }
 
     public T buscaPaciente(String nome) {
@@ -130,7 +149,7 @@ public class ListaEncadeada<T> {
     }
 
 
-    public void atualizarConsulta(String nomePaciente, String dataConsulta) {
+    public Consulta atualizarConsulta(String nomePaciente, String dataConsulta) {
         Node<T> atual = head;
         while (atual != null) {
             if (atual.data instanceof Paciente paciente) {

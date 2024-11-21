@@ -1,4 +1,4 @@
-package CasoUm;
+package casoum;
 
 public class Node<T> {
     T data;

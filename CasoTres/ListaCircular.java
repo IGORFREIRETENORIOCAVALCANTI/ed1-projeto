@@ -1,4 +1,4 @@
-package CasoTres;
+package casotres;
 
 import java.util.ArrayList;
 import java.util.Comparator;

@@ -1,4 +1,4 @@
-package CasoDois;
+package casodois;
 
 public class ListaDuplamenteEncadeada<T> {
     private Node<T> head;
